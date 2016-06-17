@@ -73,13 +73,3 @@ var translateCommands = function (state, string) {
     return commandDictionary[state.configuration.language][char];
   });
 };
-
-var main = function () {
-  var state = makeInitState({});
-
-  console.log(state);
-
-  var newState = getNextState('forward', state);
-
-  console.log(newState);
-};
