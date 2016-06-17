@@ -22,7 +22,7 @@ var directionValues = {
 
 var makeInitState = function (configuration) {
   return {
-    bounds: {
+    bounds: configuration.bounds || {
       x: 5,
       y: 5
     },
@@ -76,5 +76,3 @@ var main = function () {
 
   console.log(newState);
 };
-
-main();
