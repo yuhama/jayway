@@ -16,6 +16,25 @@ describe('Jayway robot test suite', function () {
     });
   });
 
+  describe('Getting a new position given an original position and a direction', function () {
+    it('should handle going north', function () {
+      var result = getNewPosition({ x: 0, y: 0 }, 'north');
+      expect(result).toEqual({ x: 0, y: 1 });
+    });
+    it('should handle going east', function () {
+      var result = getNewPosition({ x: 0, y: 0 }, 'east');
+      expect(result).toEqual({ x: 1, y: 0 });
+    });
+    it('should handle going west', function () {
+      var result = getNewPosition({ x: 0, y: 0 }, 'west');
+      expect(result).toEqual({ x: -1, y: 0 });
+    });
+    it('should handle going south', function () {
+      var result = getNewPosition({ x: 0, y: 0 }, 'south');
+      expect(result).toEqual({ x: 0, y: -1 });
+    });
+  });
+
   describe('Robot next state', function () {
     var initState = makeInitState({});
 
