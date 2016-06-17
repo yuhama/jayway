@@ -42,7 +42,14 @@ var getNewPosition = function (position, direction) {
 };
 
 var getNewDirection = function (direction, command) {
-  return 'north';
+  var modifier = command === 'right' ? 1 : -1,
+      currentDirectionIndex = directions.indexOf(direction),
+      nextDirectionIndex = (currentDirectionIndex + modifier) % directions.length;
+
+  // If going left from north we get negative 1 in nextDirectionIndex, but it should be 3.
+  var fixedDirectionIndex = nextDirectionIndex === -1 ? 3 : nextDirectionIndex; 
+
+  return directions[fixedDirectionIndex];
 };
 
 var makeNewState = function (state, change) {
