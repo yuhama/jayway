@@ -32,6 +32,13 @@ var makeInitState = function (configuration) {
   };
 };
 
+var checkBounds = function (state) {
+  return state.position.x < state.bounds.x
+      && state.position.y < state.bounds.y
+      && state.position.x >= 0
+      && state.position.y >= 0;
+};
+
 var getNewPosition = function (position, direction) {
   var directionValue = directionValues[direction];
 
