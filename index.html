@@ -6,16 +6,21 @@
 <body>
   <div ng-app="robot" ng-controller="RobotController">
     <form name="robotForm">
+      <label for="language">Language: </label>
+      <select name="language" ng-model="language" required>
+        <option value="english">English</option>
+        <option value="swedish">Swedish</option>
+      </select>
       <label for="commands">Commands: </label>
-      <input type="text"   name="commands" ng-model="commands">
+      <input type="text"   name="commands" ng-model="commands" required>
       <label for="boundsX">Bounds X: </label>
-      <input type="number" min="0" name="boundsX" ng-model="boundsX">
+      <input type="number" min="0" name="boundsX" ng-model="boundsX" required>
       <label for="boundsY">Bounds Y: </label>
-      <input type="number" min="0" name="boundsY" ng-model="boundsY">
+      <input type="number" min="0" name="boundsY" ng-model="boundsY" required>
       <label for="startPositionX">Start Position X: </label>
-      <input type="number" min="0" max="{{ boundsX - 1 }}" name="startPositionX" ng-model="startPositionX">
+      <input type="number" min="0" name="startPositionX" ng-model="startPositionX" required>
       <label for="startPositionY">Start Position Y: </label>
-      <input type="number" min="0" max="{{ boundsY - 1 }}" name="startPositionY" ng-model="startPositionY">
+      <input type="number" min="0" name="startPositionY" ng-model="startPositionY" required>
     </form>
 
     <button ng-click="submit()">Submit</button>
