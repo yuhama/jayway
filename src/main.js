@@ -65,9 +65,17 @@ var makeNewState = function (state, change) {
 
 var getNextState = function (state, command) {
   if (command === 'forward') {
-    return makeNewState(state, {
+    var newState = makeNewState(state, {
       position: getNewPosition(state.position, state.direction)
     });
+
+    // If the new state is valid we return it
+    // else the previous state (ie ignoring the command)
+    if (checkBounds(newState)) {
+      return newState;
+    } else {
+      return state;
+    }
   } else {
     return makeNewState(state, {
       direction: getNewDirection(state.direction, command)

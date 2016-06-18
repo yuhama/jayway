@@ -97,5 +97,10 @@ describe('Jayway robot test suite', function () {
       var nextState = getNextState(initState, 'left');
       expect(nextState.direction).toBe('west');
     });
+    it('should be unable to move outside of bounds', function () {
+      var nextState = getNextState(initState, 'left');
+      nextState = getNextState(nextState, 'forward');
+      expect(nextState.position).toEqual({ x: 0, y: 0 });
+    });
   });
 });
