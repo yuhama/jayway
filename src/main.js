@@ -56,7 +56,7 @@ var makeNewState = function (state, change) {
   return _.merge({}, state, change);
 };
 
-var getNextState = function (command, state) {
+var getNextState = function (state, command) {
   if (command === 'forward') {
     return makeNewState(state, {
       position: getNewPosition(state.position, state.direction)
@@ -68,8 +68,8 @@ var getNextState = function (command, state) {
   }
 };
 
-var translateCommands = function (state, string) {
+var translateCommands = function (language, string) {
   return string.split('').map(function (char) {
-    return commandDictionary[state.configuration.language][char];
+    return commandDictionary[language][char];
   });
 };

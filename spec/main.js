@@ -62,17 +62,17 @@ describe('Jayway robot test suite', function () {
 
     it('should move north if given a forward command', function () {
       expect(initState.position).toEqual({ x: 0, y: 0 });
-      var nextState = getNextState('forward', initState);
+      var nextState = getNextState(initState, 'forward');
       expect(nextState.position).toEqual({ x: 0, y: 1 });
     });
     it('should face east if given a right command', function () {
       expect(initState.direction).toBe('north');
-      var nextState = getNextState('right', initState);
+      var nextState = getNextState(initState, 'right');
       expect(nextState.direction).toBe('east');
     });
     it('should face west if given a left command', function () {
       expect(initState.direction).toBe('north');
-      var nextState = getNextState('left', initState);
+      var nextState = getNextState(initState, 'left');
       expect(nextState.direction).toBe('west');
     });
   });
