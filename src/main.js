@@ -88,3 +88,10 @@ var translateCommands = function (language, string) {
     return commandDictionary[language][char];
   });
 };
+
+var followCommands = function (configuration, string) {
+  var initState = makeInitState(configuration);
+  var translatedCommands = translateCommands(initState.language, string);
+
+  return _.reduce(translatedCommands, getNextState, initState);
+};

@@ -103,4 +103,17 @@ describe('Jayway robot test suite', function () {
       expect(nextState.position).toEqual({ x: 0, y: 0 });
     });
   });
+
+  describe('Robot follow commands', function () {
+    it('should follow a series of commands', function () {
+      var result = followCommands({}, 'FFLRRF');
+      expect(result.position).toEqual({ x: 1, y: 2 });
+      expect(result.direction).toBe('east');
+    });
+    it('should respect bounds', function () {
+      var result = followCommands({}, 'LFFRRF');
+      expect(result.position).toEqual({ x: 1, y: 0 });
+      expect(result.direction).toBe('east');
+    });
+  });
 });
