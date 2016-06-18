@@ -46,6 +46,17 @@ describe('Jayway robot test suite', function () {
     });
   });
 
+  describe('Commands should be translated to common symbols', function () {
+    it('should handle english', function () {
+      var result = translateCommands('english', 'FFLR');
+      expect(result).toEqual(['forward', 'forward', 'left', 'right']);
+    });
+    it('should handle swedish', function () {
+      var result = translateCommands('swedish', 'GGVH');
+      expect(result).toEqual(['forward', 'forward', 'left', 'right']);
+    });
+  });
+
   describe('Robot next state', function () {
     var initState = makeInitState({});
 

@@ -6,8 +6,8 @@ var commandDictionary = {
   },
   english: {
     'F': 'forward',
-    'V': 'left',
-    'H': 'right'
+    'L': 'left',
+    'R': 'right'
   }
 };
 
