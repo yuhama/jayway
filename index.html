@@ -1,8 +1,30 @@
 <!doctype html>
 <html>
-<head></head>
+<head>
+  <link rel="stylesheet" type="text/css" href="src/main.css">
+</head>
 <body>
+  <div ng-app="robot" ng-controller="RobotController">
+    <form name="robotForm">
+      <label for="commands">Commands: </label>
+      <input type="text"   name="commands" ng-model="commands">
+      <label for="boundsX">Bounds X: </label>
+      <input type="number" min="0" name="boundsX" ng-model="boundsX">
+      <label for="boundsY">Bounds Y: </label>
+      <input type="number" min="0" name="boundsY" ng-model="boundsY">
+      <label for="startPositionX">Start Position X: </label>
+      <input type="number" min="0" max="{{ boundsX - 1 }}" name="startPositionX" ng-model="startPositionX">
+      <label for="startPositionY">Start Position Y: </label>
+      <input type="number" min="0" max="{{ boundsY - 1 }}" name="startPositionY" ng-model="startPositionY">
+    </form>
+
+    <button ng-click="submit()">Submit</button>
+
+    <div class="result">{{ result }}</div>
+  </div>
+  <script src="lib/angular.min.js"></script>
   <script src="lib/lodash.min.js"></script>
-  <script src="src/main.js"></script>
+  <script src="src/app.js"></script>
+  <script src="src/robot.js"></script>
 </body>
 </html>
