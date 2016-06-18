@@ -35,6 +35,17 @@ describe('Jayway robot test suite', function () {
     });
   });
 
+  describe('Getting a new direction given an original direction and a command', function () {
+    it('should handle going left', function () {
+      var result = getNewDirection('north', 'left');
+      expect(result).toBe('west');
+    });
+    it('should handle going right', function () {
+      var result = getNewDirection('north', 'right');
+      expect(result).toBe('east');
+    });
+  });
+
   describe('Robot next state', function () {
     var initState = makeInitState({});
 
