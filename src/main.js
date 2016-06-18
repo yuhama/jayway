@@ -84,7 +84,7 @@ var getNextState = function (state, command) {
 };
 
 var translateCommands = function (language, string) {
-  return string.split('').map(function (char) {
+  return string.toUpperCase().split('').map(function (char) {
     return commandDictionary[language][char];
   });
 };
