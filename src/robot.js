@@ -90,8 +90,8 @@ var translateCommands = function (language, string) {
 };
 
 var followCommands = function (configuration, string) {
-  var initState = makeInitState(configuration);
-  var translatedCommands = translateCommands(initState.language, string);
+  var initState = makeInitState(configuration),
+      translatedCommands = translateCommands(initState.language, string);
 
   return _.reduce(translatedCommands, getNextState, initState);
 };
