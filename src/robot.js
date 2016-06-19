@@ -28,15 +28,27 @@ var makeInitState = function (configuration) {
     },
     position: configuration.position || { x: 0, y: 0 },
     direction: 'north',
-    language: configuration.language || 'english'
+    language: configuration.language || 'english',
+    shape: configuration.shape || 'rectangle'
   };
 };
 
 var checkBounds = function (state) {
-  return state.position.x < state.bounds.x
-      && state.position.y < state.bounds.y
-      && state.position.x >= 0
-      && state.position.y >= 0;
+  var position = state.position,
+      bounds = state.bounds;
+
+  if (state.shape === 'circle') {
+    return ((position.x - 0)
+          * (position.x - 0)
+          + (position.y - 0)
+          * (position.y - 0))
+          < bounds.r * bounds.r;
+  } else {
+    return position.x < bounds.x
+        && position.y < bounds.y
+        && position.x >= 0
+        && position.y >= 0;
+  }
 };
 
 var getNewPosition = function (position, direction) {

@@ -8,6 +8,11 @@
     <div class="container">
       <div class="column">
         <form name="robotForm">
+          <label for="shape">Shape: </label>
+          <select name="shape" ng-model="shape" required>
+            <option value="rectangle">Rectangle</option>
+            <option value="circle">Circle</option>
+          </select>
           <label for="language">Language: </label>
           <select name="language" ng-model="language" required>
             <option value="english">English</option>
@@ -15,10 +20,18 @@
           </select>
           <label for="commands">Commands: </label>
           <input type="text"   name="commands" ng-model="commands" required>
-          <label for="boundsX">Bounds X: </label>
-          <input type="number" min="0" name="boundsX" ng-model="boundsX" required>
-          <label for="boundsY">Bounds Y: </label>
-          <input type="number" min="0" name="boundsY" ng-model="boundsY" required>
+          <div ng-if="shape === 'rectangle'">
+            <label for="boundsX">Bounds X: </label>
+            <input type="number" min="0" name="boundsX" ng-model="boundsX" required>
+          </div>
+          <div ng-if="shape === 'rectangle'">
+            <label for="boundsY">Bounds Y: </label>
+            <input type="number" min="0" name="boundsY" ng-model="boundsY" required>
+          </div>
+          <div ng-if="shape === 'circle'">
+            <label for="boundsR">Bounds R: </label>
+            <input type="number" min="0" name="boundsR" ng-model="boundsR" required>
+          </div>
           <label for="startPositionX">Start Position X: </label>
           <input type="number" min="0" name="startPositionX" ng-model="startPositionX" required>
           <label for="startPositionY">Start Position Y: </label>
