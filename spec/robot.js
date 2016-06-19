@@ -46,7 +46,7 @@ describe('Jayway robot test suite', function () {
     });
   });
 
-  describe('Check bounds', function () {
+  describe('Check bounds rectangle', function () {
     it('should return false if position is out of bounds', function () {
       var result = checkBounds({
         position: { x: -1, y: 0 },
@@ -63,6 +63,25 @@ describe('Jayway robot test suite', function () {
       var result = checkBounds({
         position: { x: 1, y: 1 },
         bounds: { x: 5, y: 5 }
+      });
+      expect(result).toBe(true);
+    });
+  });
+
+  describe('Check bounds circle', function () {
+    it('should return false if position is out of bounds', function () {
+      var result = checkBounds({
+        position: { x: 4, y: 3 },
+        bounds: { r: 5 },
+        shape: 'circle'
+      });
+      expect(result).toBe(false);
+    });
+    it('should return true if position is inside of bounds', function () {
+      var result = checkBounds({
+        position: { x: -1, y: -1 },
+        bounds: { r: 5 },
+        shape: 'circle'
       });
       expect(result).toBe(true);
     });
