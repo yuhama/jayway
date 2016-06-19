@@ -26,7 +26,7 @@ var makeInitState = function (configuration) {
       x: 5,
       y: 5
     },
-    position: configuration.startPosition || { x: 0, y: 0 },
+    position: configuration.position || { x: 0, y: 0 },
     direction: 'north',
     language: configuration.language || 'english'
   };
