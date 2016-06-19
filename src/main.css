@@ -1,3 +1,46 @@
+* {
+	box-sizing: border-box;
+}
+
 input, select, button {
 	display: block;
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+select {
+	padding: 10px;
+}
+
+input {
+	border-radius: 5px;
+}
+
+button {
+	margin-top:20px;
+}
+
+.container {
+	display: table;
+	padding: 20px;
+}
+
+.column {
+	display: table-cell;
+}
+
+.column:first-of-type {
+	width: 200px;
+	vertical-align: top;
+}
+
+.result-area {
+	display: relative;
+	padding: 50px 100px;
+	font-family: helvetica;
+	font-size: 48px;
+}
+
+.end-position-x {
 }

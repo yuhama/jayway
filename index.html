@@ -5,27 +5,41 @@
 </head>
 <body>
   <div ng-app="robot" ng-controller="RobotController">
-    <form name="robotForm">
-      <label for="language">Language: </label>
-      <select name="language" ng-model="language" required>
-        <option value="english">English</option>
-        <option value="swedish">Swedish</option>
-      </select>
-      <label for="commands">Commands: </label>
-      <input type="text"   name="commands" ng-model="commands" required>
-      <label for="boundsX">Bounds X: </label>
-      <input type="number" min="0" name="boundsX" ng-model="boundsX" required>
-      <label for="boundsY">Bounds Y: </label>
-      <input type="number" min="0" name="boundsY" ng-model="boundsY" required>
-      <label for="startPositionX">Start Position X: </label>
-      <input type="number" min="0" name="startPositionX" ng-model="startPositionX" required>
-      <label for="startPositionY">Start Position Y: </label>
-      <input type="number" min="0" name="startPositionY" ng-model="startPositionY" required>
-    </form>
-
-    <button ng-click="submit()">Submit</button>
-
-    <div class="result">{{ result }}</div>
+    <div class="container">
+      <div class="column">
+        <form name="robotForm">
+          <label for="language">Language: </label>
+          <select name="language" ng-model="language" required>
+            <option value="english">English</option>
+            <option value="swedish">Swedish</option>
+          </select>
+          <label for="commands">Commands: </label>
+          <input type="text"   name="commands" ng-model="commands" required>
+          <label for="boundsX">Bounds X: </label>
+          <input type="number" min="0" name="boundsX" ng-model="boundsX" required>
+          <label for="boundsY">Bounds Y: </label>
+          <input type="number" min="0" name="boundsY" ng-model="boundsY" required>
+          <label for="startPositionX">Start Position X: </label>
+          <input type="number" min="0" name="startPositionX" ng-model="startPositionX" required>
+          <label for="startPositionY">Start Position Y: </label>
+          <input type="number" min="0" name="startPositionY" ng-model="startPositionY" required>
+        </form>
+        <button ng-click="submit()">Submit</button>
+      </div>
+      <div class="column">
+        <div class="result-area" ng-if="result">
+          <div class="end-position-x">
+            <span class="result">End Position X: {{ result.position.x }}</span>
+          </div>
+          <div class="end-position-y">
+            <span class="result">End Position Y: {{ result.position.y }} </span>
+          </div>
+          <div class="end-position-direction">
+            <span class="result">Direction: {{ result.direction }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <script src="lib/angular.min.js"></script>
   <script src="lib/lodash.min.js"></script>
